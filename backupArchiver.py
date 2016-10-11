@@ -71,6 +71,7 @@ def help_text():
         Help
         ./backupArchiver.sh --help
 
+        Archive the backups
         ./backupArchiver.sh --src=/copy_from_here/ --dest=/copy_to_here/ [--aging={src|dest|both|none} --age=n]
         ''')
 
@@ -83,7 +84,8 @@ def process_args(sargv):
     AGE_CMD = '--age='
 
     if sargv[1] in HELP_CMD_ARR:
-        print('Help')
+        # print('Help')
+        help_text()
     elif sargv[1][0:len(SRC_CMD)] == SRC_CMD and sargv[2][0:len(DEST_CMD)] == DEST_CMD:
         src_loc = sargv[1][len(SRC_CMD):]
         dest_loc = sargv[2][len(DEST_CMD):]
